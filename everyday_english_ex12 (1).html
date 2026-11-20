@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Everyday English – Ex. 12</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f3f8fb;color:#222;line-height:1.5;font-size:16px}
+header{background:#0b6e99;color:#fff;padding:12px 18px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:20px}
+.bar{height:10px;background:#ffffff55;border-radius:6px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#ffd84d;transition:width .4s}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tab{border:0;border-radius:16px;padding:4px 11px;background:#ffffff33;color:#fff;cursor:pointer;font-size:14px}
+.tab.cur{background:#fff;color:#0b6e99;font-weight:bold}
+.tab.ok::after{content:" ✓"}
+main{max-width:860px;margin:0 auto;padding:14px 18px 90px}
+.step{display:none}.step.cur{display:block}
+h2{color:#0b6e99;margin:8px 0 4px}
+h3{margin:22px 0 6px;font-size:17px}
+.hint{color:#666;font-size:14px;margin:2px 0 10px}
+.tip{background:#eef6ff;border-left:4px solid #3a7bd5;padding:8px 12px;margin:10px 0;border-radius:4px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.flip{background:#fff;border:2px solid #0b6e99;border-radius:12px;min-height:112px;padding:10px;cursor:pointer;text-align:center;display:flex;flex-direction:column;justify-content:center;position:relative;user-select:none;transition:transform .15s}
+.flip:hover{transform:translateY(-2px)}
+.flip .f{font-weight:bold;font-size:18px}.flip .f small{display:block;font-weight:normal;color:#999;font-size:12px;margin-top:4px}
+.flip .b{display:none;font-size:14px}.flip .b em{display:block;color:#0b6e99;font-style:normal;font-weight:bold;margin-top:4px}
+.flip.on{background:#e2f2f9}.flip.on .f{display:none}.flip.on .b{display:block}
+.pic{display:block;width:100%;max-width:150px;margin:0 auto 6px;border-radius:8px}
+.fix{display:none;font-weight:bold;color:#1c7a41}.q.done .fix{display:inline}
+.ti{width:130px;font-size:15px;padding:3px 6px;border:2px solid #0b6e99;border-radius:8px}
+.ti.done{border-color:#2e9e5b;background:#e3f6ea;color:#1c7a41;font-weight:bold}
+.ti.bad{background:#e2504c!important;color:#fff!important;animation:sh .35s}
+.tabs{display:none}
+.q{font-size:17px;padding:12px 14px}
+.q .B{margin-top:6px;padding-left:22px}
+.say{position:absolute;top:4px;right:6px;border:0;background:none;cursor:pointer;font-size:16px}
+.q{background:#fff;border-radius:10px;padding:10px 12px;margin:8px 0;border:1px solid #c8dfea}
+.q.done{border-color:#2e9e5b;background:#f1fbf5}
+.opt{border:2px solid #0b6e99;background:#fff;color:#0b6e99;border-radius:18px;padding:5px 13px;margin:4px 4px 0 0;cursor:pointer;font-size:15px}
+.opt:hover{background:#e2f2f9}
+.opt.good{background:#2e9e5b;border-color:#2e9e5b;color:#fff}
+.opt.bad,.chip.bad,.m.bad{background:#e2504c!important;border-color:#e2504c!important;color:#fff!important;animation:sh .35s}
+.q.done .opt:not(.good){opacity:.35;pointer-events:none}
+.q.done .opt.x{text-decoration:line-through}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.bank{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed #0b6e99;border-radius:10px;background:#fff;min-height:54px;margin:8px 0}
+.chip{background:#0b6e99;color:#fff;border:2px solid #0b6e99;border-radius:18px;padding:5px 13px;cursor:grab;touch-action:none;user-select:none;display:inline-block}
+.chip.pc{border-radius:12px;padding:5px;text-align:center;font-size:14px;width:118px}
+.chip.pc img{display:block;width:104px;height:104px;border-radius:8px;margin:0 auto 3px;pointer-events:none}
+.chip.sel{background:#ffd84d;color:#222;border-color:#222}
+.chip.dragging{opacity:.3}
+.chip.lock{background:#2e9e5b;border-color:#2e9e5b;cursor:default}
+.ghost{position:fixed;pointer-events:none;z-index:99;transform:translate(-50%,-50%) rotate(-3deg);box-shadow:0 6px 14px #0004}
+.cols{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.bucket{background:#fff;border:2px solid #ccc;border-radius:10px;min-height:120px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
+.bucket b{width:100%;text-align:center}
+.zone.hot{border-color:#ffb300;background:#fff8e1}
+.gap{display:inline-block;min-width:110px;border:2px dashed #999;border-radius:8px;padding:1px 8px;text-align:center;background:#fff;color:#999;cursor:pointer}
+.gap.done{border:2px solid #2e9e5b;background:#e3f6ea;color:#1c7a41;font-weight:bold;cursor:default}
+.row{background:#fff;border:1px solid #c8dfea;border-radius:10px;padding:8px 12px;margin:8px 0}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.match>div{display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border:2px solid #0b6e99;border-radius:10px;padding:8px 10px;cursor:pointer}
+.m.sel{background:#ffd84d}.m.done{background:#e3f6ea;border-color:#2e9e5b;cursor:default}
+.review{background:#fff;border-radius:10px;padding:12px;border:1px solid #c8dfea;margin:10px 0;line-height:2.1}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:10px;display:flex;justify-content:center;gap:10px}
+nav button{border:0;border-radius:20px;padding:9px 20px;font-size:15px;cursor:pointer;background:#0b6e99;color:#fff}
+nav button.g{background:#eee;color:#444}
+select,input[type=text]{font-size:15px;padding:4px 6px;border:2px solid #0b6e99;border-radius:8px}
+#out{background:#fff;border:2px solid #0b6e99;border-radius:12px;padding:14px;font-size:17px;margin-top:12px}
+#win{display:none;background:#fff8d6;border:2px solid #ffb300;border-radius:12px;padding:12px;text-align:center;font-size:18px;margin:10px 0}
+</style></head><body>
+<header>
+<h1>💬 Everyday English: Ex. 12</h1>
+<div class="bar"><i id="pb"></i></div>
+<div class="tabs" id="tabs"></div>
+</header>
+<main id="main">
+<div id="win">🎉 Well done! All twelve responses are correct!</div>
+
+<section class="step" data-t="Ex. 12">
+<h2>Everyday English. Choose the correct response</h2>
+<p class="hint">Read what A says and click the best answer for B. A correct answer turns green; a wrong answer flashes red – try again.</p>
+<div class="q task odd"><div class="A"><b>1</b> &nbsp;🗣 <b>A:</b> Did you hear? There was an earthquake and 10 people are dead.</div><div class="B">💬 <b>B:</b> <button class="opt" data-ok><b>a</b> Really? How horrible.</button><button class="opt"><b>b</b> They weren’t, were they?</button></div></div>
+<div class="q task odd"><div class="A"><b>2</b> &nbsp;🗣 <b>A:</b> What size are you?</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> I’m 1.63 m.</button><button class="opt" data-ok><b>b</b> I’m a 10.</button></div></div>
+<div class="q task odd"><div class="A"><b>3</b> &nbsp;🗣 <b>A:</b> Can I see your ID, please?</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> Yes, thank you.</button><button class="opt" data-ok><b>b</b> Here you are.</button></div></div>
+<div class="q task odd"><div class="A"><b>4</b> &nbsp;🗣 <b>A:</b> Can I borrow a pen, please?</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> Any good?</button><button class="opt" data-ok><b>b</b> No problem.</button></div></div>
+<div class="q task odd"><div class="A"><b>5</b> &nbsp;🗣 <b>A:</b> Could I have a contact number?</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> 20, Apple Street.</button><button class="opt" data-ok><b>b</b> 020-7771-1010.</button></div></div>
+<div class="q task odd"><div class="A"><b>6</b> &nbsp;🗣 <b>A:</b> In my opinion, we should all ride bicycles.</div><div class="B">💬 <b>B:</b> <button class="opt" data-ok><b>a</b> I totally agree with you.</button><button class="opt"><b>b</b> To my mind, they should.</button></div></div>
+<div class="q task odd"><div class="A"><b>7</b> &nbsp;🗣 <b>A:</b> Thank you very much.</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> Sure.</button><button class="opt" data-ok><b>b</b> My pleasure.</button></div></div>
+<div class="q task odd"><div class="A"><b>8</b> &nbsp;🗣 <b>A:</b> What did you think of the plot?</div><div class="B">💬 <b>B:</b> <button class="opt" data-ok><b>a</b> It was exciting.</button><button class="opt"><b>b</b> They were shallow.</button></div></div>
+<div class="q task odd"><div class="A"><b>9</b> &nbsp;🗣 <b>A:</b> I wonder if you could help me.</div><div class="B">💬 <b>B:</b> <button class="opt" data-ok><b>a</b> Of course.</button><button class="opt"><b>b</b> Oh, yes, thank you.</button></div></div>
+<div class="q task odd"><div class="A"><b>10</b> &nbsp;🗣 <b>A:</b> Could you make it on Friday the 10th at 9 am?</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> You’re welcome.</button><button class="opt" data-ok><b>b</b> That should be fine.</button></div></div>
+<div class="q task odd"><div class="A"><b>11</b> &nbsp;🗣 <b>A:</b> You are always interrupting me!</div><div class="B">💬 <b>B:</b> <button class="opt" data-ok><b>a</b> Oh, I’m sorry.</button><button class="opt"><b>b</b> I’d try not to do it.</button></div></div>
+<div class="q task odd"><div class="A"><b>12</b> &nbsp;🗣 <b>A:</b> I twisted my ankle and I can’t walk on it.</div><div class="B">💬 <b>B:</b> <button class="opt"><b>a</b> I didn’t mean to.</button><button class="opt" data-ok><b>b</b> I’m sorry to hear that.</button></div></div>
+</section>
+</main>
+<nav><button class="g" id="prev">← Back</button><button class="g" id="reset">↺ Start again</button><button id="next">Next →</button></nav>
+
+<script>
+var main=document.getElementById('main'),tabs=document.getElementById('tabs'),initial=main.innerHTML,cur=0,sel=null,msel=null,drag=null;
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function shuffle(el){var k=$$(':scope > *',el).filter(function(x){return x.tagName!=='B'});for(var i=k.length;i;i--){el.appendChild(k.splice(Math.floor(Math.random()*i),1)[0])}}
+function steps(){return $$('.step',main)}
+function init(){
+  $$('.gap',main).forEach(function(g){g.classList.add('task')});
+  $$('.bank.sort .chip',main).forEach(function(c){c.classList.add('task')});
+  $$('.bank,.shuf',main).forEach(shuffle);
+  $$('.q:not(.odd)',main).forEach(function(q){var o=$$('.opt',q),p=o[0].parentNode,m=document.createElement('span');p.insertBefore(m,o[0]);
+    for(var i=o.length;i;i--){p.insertBefore(o.splice(Math.floor(Math.random()*i),1)[0],m)}m.remove()});
+  tabs.innerHTML='';
+  steps().forEach(function(s,i){var b=document.createElement('button');b.className='tab';b.textContent=(i+1)+'. '+s.dataset.t;b.onclick=function(){show(i)};tabs.appendChild(b)});
+  $$('select,input',main).forEach(function(e){e.oninput=review});
+  sel=msel=null;review();show(cur);progress();
+}
+function show(i){var st=steps();cur=Math.max(0,Math.min(st.length-1,i));
+  st.forEach(function(s,k){s.classList.toggle('cur',k===cur)});
+  $$('.tab',tabs).forEach(function(t,k){t.classList.toggle('cur',k===cur)});
+  document.getElementById('prev').style.visibility=cur?'visible':'hidden';
+  document.getElementById('next').style.visibility=cur<st.length-1?'visible':'hidden';
+  if(sel){sel.classList.remove('sel');sel=null}
+  window.scrollTo(0,0)}
+function progress(){var all=$$('.task',main),d=all.filter(function(t){return t.classList.contains('done')});
+  document.getElementById('pb').style.width=(all.length?100*d.length/all.length:0)+'%';
+  steps().forEach(function(s,i){var t=$$('.task',s);tabs.children[i].classList.toggle('ok',t.length>0&&t.every(function(x){return x.classList.contains('done')}))});
+  document.getElementById('win').style.display=(all.length&&d.length===all.length)?'block':'none'}
+function wrong(el){el.classList.add('bad');setTimeout(function(){el.classList.remove('bad')},500)}
+function place(c,z){
+  if(sel){sel.classList.remove('sel');sel=null}
+  if(!z||z.closest('.step')!==c.closest('.step'))return;
+  if(z.classList.contains('gap')&&z.classList.contains('done'))return;
+  if(z.dataset.accept.split('|').indexOf(c.dataset.val)<0){wrong(c);return}
+  if(z.classList.contains('gap')){z.textContent=c.textContent;z.classList.add('done');c.remove()}
+  else{c.classList.add('lock','done');z.appendChild(c)}
+  progress()}
+function review(){}
+
+document.addEventListener('click',function(e){
+  var t=e.target,x;
+  if(x=t.closest('.say')){e.stopPropagation();try{var f=[].filter.call(x.parentNode.querySelector('.f').childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join(' ').replace(/[^a-z\- ]/gi,'').trim();var u=new SpeechSynthesisUtterance(f);u.lang='en-GB';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(err){}return}
+  if(x=t.closest('.flip')){x.classList.toggle('on');return}
+  if(x=t.closest('.opt')){var q=x.closest('.q');if(q.classList.contains('done'))return;
+    if(x.hasAttribute('data-ok')){x.classList.add('good');q.classList.add('done');progress()}else wrong(x);return}
+  if(x=t.closest('.m')){if(x.classList.contains('done'))return;
+    if(x.classList.contains('L')){if(msel)msel.classList.remove('sel');msel=x;x.classList.add('sel')}
+    else if(msel){if(msel.dataset.p===x.dataset.p){msel.classList.remove('sel');msel.classList.add('done');x.classList.add('done');msel.textContent+=' ↔';msel=null;progress()}else wrong(x)}
+    return}
+  if((x=t.closest('.zone'))&&sel&&!t.closest('.chip')){place(sel,x)}
+});
+document.addEventListener('pointerdown',function(e){var c=e.target.closest('.chip');if(!c||c.classList.contains('lock'))return;drag={c:c,x:e.clientX,y:e.clientY,g:null}});
+document.addEventListener('pointermove',function(e){if(!drag)return;
+  if(!drag.g&&Math.abs(e.clientX-drag.x)+Math.abs(e.clientY-drag.y)>8){drag.g=drag.c.cloneNode(true);drag.g.classList.add('ghost');drag.g.classList.remove('sel');document.body.appendChild(drag.g);drag.c.classList.add('dragging')}
+  if(drag.g){drag.g.style.left=e.clientX+'px';drag.g.style.top=e.clientY+'px';
+    var el=document.elementFromPoint(e.clientX,e.clientY),z=el&&el.closest('.zone');$$('.zone.hot').forEach(function(h){if(h!==z)h.classList.remove('hot')});if(z)z.classList.add('hot')}});
+function endDrag(e,cancel){if(!drag)return;var d=drag;drag=null;$$('.zone.hot').forEach(function(h){h.classList.remove('hot')});
+  if(d.g){d.g.remove();d.c.classList.remove('dragging');if(!cancel){var el=document.elementFromPoint(e.clientX,e.clientY);place(d.c,el&&el.closest('.zone'))}}
+  else if(!cancel){if(sel)sel.classList.remove('sel');if(sel===d.c){sel=null}else{sel=d.c;sel.classList.add('sel')}}}
+document.addEventListener('pointerup',function(e){endDrag(e,false)});
+document.addEventListener('pointercancel',function(e){endDrag(e,true)});
+document.getElementById('prev').onclick=function(){show(cur-1)};
+document.getElementById('next').onclick=function(){show(cur+1)};
+document.getElementById('reset').onclick=function(){main.innerHTML=initial;cur=0;init()};
+document.addEventListener('input',function(e){var t=e.target;if(t.classList&&t.classList.contains('ti')&&t.dataset.a.split('|').indexOf(t.value.trim().toLowerCase())>=0){t.classList.add('done');t.disabled=true;progress()}});
+document.addEventListener('change',function(e){var t=e.target;if(t.classList&&t.classList.contains('ti')&&!t.classList.contains('done')&&t.value.trim())wrong(t)});
+init();
+</script>
+</body></html>
